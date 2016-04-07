@@ -1,6 +1,7 @@
 #include "veiculo.hpp"
 #include "carro.hpp"
 #include "moto.hpp"
+#include "pessoa.hpp"
 int main(int argc, char **argv)
 {
 	//Variaveis Locais
@@ -11,7 +12,8 @@ int main(int argc, char **argv)
 	string modelo;
 	float preco;
 	int qntcilin;
-	
+
+
 	//Exemplo de manipulacao de objetos - estatica
 	/*Veiculo veiculo;
 	cout <<"informe a marca do veiculo:" << endl;
@@ -64,10 +66,10 @@ int main(int argc, char **argv)
 	cout << carro->getTipoCambio() << " - ";
 	cout << carro->getNumeroAssentos() << endl << endl;
 	delete carro;*/
-	
+
 	/*Moto *moto;
 	moto = new Moto("Honda", "BIZ 125", 10000, 125);
-	
+
 	cout <<endl;
 	cout << "Dados da Moto: " << endl;
 	cout << moto->getMarca() << " - ";
@@ -76,34 +78,64 @@ int main(int argc, char **argv)
 	cout << moto->getqntcilin() << " - ";
 	cout <<endl;
 	delete moto;*/
-	
+
 	//Exemplo de alocação/desalocação dinamica de arrays de objetos
 	/*Moto *vetor_motos;
 	vetor_motos = new Moto[10];
 	delete [] vetor_motos;
 	return 0;*/
-	Moto *vetor_motos;
+
+	/*Moto *vetor_motos;
 	vetor_motos = new Moto[10];
-	
+
 	int i;
 	for (i = 0; i < 2; i++){
 	cout << "Informe o modelo da Moto: " << endl;
 	cin >> modelo;
 	vetor_motos[i].setModelo(modelo);
-	
+
 	cout << "Informe a Marca da Moto: " << endl;
 	cin >> marca;
 	vetor_motos[i].setMarca(marca);
-	
+
 	cout << "Informe o Preço da Moto: " << endl;
 	cin >> preco;
 	vetor_motos[i].setPreco(preco);
-	
+
 	cout << "informe a cilindradas da Moto: " << endl;
 	cin >> qntcilin;
 	vetor_motos[i].setqntcilin(qntcilin);
-	
-	cin.clear();	
+
+	cin.clear();
 	}
-	delete [] vetor_motos;
+	delete [] vetor_motos;*/
+
+            Pessoa *raiz=NULL;
+            Pessoa *novo;
+            for(int i=0; i<4; i++)
+                {
+                    novo = new Pessoa();
+
+                    cout << "===Insere Pessoa===" << endl;
+                    cout << "Informe o Nome da Pessoa: ";
+                    cin >> texto;
+                    novo->setNome(texto);
+
+                    cout<< "Informe a Idade da Pessoa: ";
+                    cin >> texto;
+                    novo->setIdade(numero);
+
+                    if(raiz == NULL)
+                        {
+                            raiz = novo;
+                        }
+                    else
+                        {
+                            raiz->insereNovoElemento(novo);
+                        };
+
+                };
+
+
+    return 0;
 }
